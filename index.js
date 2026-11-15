@@ -12,15 +12,10 @@ app.use(methodOverride("_method"));
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"/views"));
 const connection = mysql.createConnection({
-  // host     : 'localhost',
-  // user     : 'root',
-  // password : 'Rupsa@123',
-  // database : 'sigma_app'
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT
+  host     : 'localhost',
+  user     : 'root',
+  password : 'Rupsa@123',
+  database : 'sigma_app'
 });
 
 let getRandomUser=() =>{
@@ -169,11 +164,6 @@ let q= `SELECT * FROM user`;
 
 // connection.end();
 
-// app.listen("8080",()=>{
-//   console.log("Server is listening on port 8080");
-// });
-
-const PORT= process.env.PORT || 8080;
-app.listen(PORT, "0.0.0.0",()=>{
-  console.log(`Server running on port ${PORT}`);
+app.listen("8080",()=>{
+  console.log("Server is listening on port 8080");
 });
